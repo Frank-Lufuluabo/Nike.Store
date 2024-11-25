@@ -97,7 +97,7 @@ menuItems.forEach((item, index) => {
 
         //Change texts of currentProduct
         currentProductTitle.textContent = choosenProduct.title;
-        currentProductPrice.textContent = "$" + choosenProduct.price;
+        currentProductPrice.textContent = "R" + choosenProduct.price;
         currentProductImg.src = choosenProduct.colors[0].img;
 
          //Assinging new colors
@@ -106,7 +106,13 @@ menuItems.forEach((item, index) => {
           });
     });
 });
-  
+
+currentProductColors.forEach((color, index) => {
+    color.addEventListener("click", () => {
+      currentProductImg.src = choosenProduct.colors[index].img;
+    });
+  });
+
   currentProductSizes.forEach((size, index) => {
     size.addEventListener("click", () => {
       currentProductSizes.forEach((size) => {
@@ -117,3 +123,15 @@ menuItems.forEach((item, index) => {
       size.style.color = "white";
     });
   });
+
+  const productButton = document.querySelector(".productButton");
+const payment = document.querySelector(".payment");
+const close = document.querySelector(".close");
+
+productButton.addEventListener("click", () => {
+  payment.style.display = "flex";
+});
+
+close.addEventListener("click", () => {
+  payment.style.display = "none";
+});
